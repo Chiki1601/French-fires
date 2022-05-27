@@ -1,0 +1,386 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #1e2028;
+}
+
+.move-wrapper {
+  width: 100px;
+  height: 100px;
+  position: fixed;
+  top: calc(50% - 50px);
+  left: calc(50% - 50px);
+  -webkit-animation: wrapper 10s infinite;
+          animation: wrapper 10s infinite;
+  transform-origin: 180px 50px;
+}
+
+.fryer {
+  width: 100px;
+  height: 40px;
+  background-color: #969696;
+  position: absolute;
+  left: 0;
+  top: 50px;
+  z-index: 2;
+  border-radius: 0 0 50% 50%;
+  -webkit-animation: fryer 10s infinite;
+          animation: fryer 10s infinite;
+}
+.fryer:before {
+  position: absolute;
+  content: "";
+  top: -10px;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background-color: #7d7d7d;
+  border-radius: 50%;
+  border-bottom: 5px solid #bf8106;
+}
+.fryer:after {
+  position: absolute;
+  top: 5px;
+  right: -80px;
+  content: "";
+  width: 80px;
+  height: 10px;
+  background-color: #b0b0b0;
+  border-radius: 0 30% 50% 0;
+  border-bottom: 3px solid #8c8c8c;
+}
+.fryer .bubbles {
+  position: absolute;
+  top: 3px;
+  left: 20px;
+}
+.fryer .bubbles:before, .fryer .bubbles:after {
+  position: absolute;
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: rgba(191, 129, 6, 0.5);
+}
+.fryer .bubbles:before {
+  left: 5px;
+  -webkit-animation: bubble 10s infinite linear;
+          animation: bubble 10s infinite linear;
+}
+.fryer .bubbles:after {
+  left: 40px;
+  -webkit-animation: bubble 10s 1s infinite linear;
+          animation: bubble 10s 1s infinite linear;
+}
+
+.package {
+  position: absolute;
+  background-color: #c85064;
+  top: 60px;
+  left: 20px;
+  width: 50px;
+  height: 40px;
+  z-index: 4;
+  -webkit-animation: package 10s infinite;
+          animation: package 10s infinite;
+}
+.package:before, .package:after {
+  position: absolute;
+  content: "";
+  width: 10px;
+  height: 40px;
+  background-color: white;
+  top: 0;
+}
+.package:before {
+  left: 10px;
+}
+.package:after {
+  right: 10px;
+}
+
+.fries {
+  width: 40px;
+  height: 9px;
+  background-color: #fac864;
+  position: absolute;
+  top: 40px;
+  left: 25px;
+  border: 2px solid #f8b633;
+  border-radius: 2px;
+  z-index: 3;
+  -webkit-animation: all-fries 10s infinite;
+          animation: all-fries 10s infinite;
+}
+.fries:before, .fries:after,
+.fries .fry,
+.fries .fry:before,
+.fries .fry:after {
+  position: absolute;
+  width: 40px;
+  height: 8px;
+  background-color: #fac864;
+  border: 2px solid #f8b633;
+  border-radius: 2px;
+}
+.fries .fry:before,
+.fries .fry:after, .fries:before, .fries:after {
+  content: "";
+}
+.fries .fry:before, .fries:before {
+  -webkit-animation: float-before 10s infinite linear;
+          animation: float-before 10s infinite linear;
+}
+.fries .fry:after, .fries:after {
+  -webkit-animation: float-after 10s infinite linear;
+          animation: float-after 10s infinite linear;
+}
+.fries:before {
+  top: 5px;
+  left: 8px;
+}
+.fries:after {
+  top: -5px;
+  left: 7px;
+}
+.fries .fry:first-child {
+  -webkit-animation: fry-1 10s infinite;
+          animation: fry-1 10s infinite;
+  top: -20px;
+}
+.fries .fry:first-child:before {
+  left: 8px;
+  top: -7px;
+}
+.fries .fry:first-child:after {
+  top: 6px;
+}
+.fries .fry:last-child {
+  -webkit-animation: fry-2 10s infinite;
+          animation: fry-2 10s infinite;
+  top: 10px;
+}
+.fries .fry:last-child:before {
+  top: 6px;
+}
+.fries .fry:last-child:after {
+  top: -5px;
+}
+
+a {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  color: white;
+  font-family: sans-serif;
+  opacity: 0.33;
+  text-align: center;
+}
+
+@-webkit-keyframes wrapper {
+  0%, 15%, 25% {
+    transform: translate3d(0, 0, 0);
+  }
+  20% {
+    transform: translate3d(0, -40px, 0) rotate(20deg);
+  }
+}
+
+@keyframes wrapper {
+  0%, 15%, 25% {
+    transform: translate3d(0, 0, 0);
+  }
+  20% {
+    transform: translate3d(0, -40px, 0) rotate(20deg);
+  }
+}
+@-webkit-keyframes package {
+  0%, 20%, 100% {
+    transform: translate3d(0, 120vh, 0) perspective(50) rotateX(-20deg);
+  }
+  25%, 90% {
+    transform: translate3d(0, 0, 0) perspective(50) rotateX(-20deg);
+  }
+}
+@keyframes package {
+  0%, 20%, 100% {
+    transform: translate3d(0, 120vh, 0) perspective(50) rotateX(-20deg);
+  }
+  25%, 90% {
+    transform: translate3d(0, 0, 0) perspective(50) rotateX(-20deg);
+  }
+}
+@-webkit-keyframes fryer {
+  0%, 20%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  25%, 90% {
+    transform: translate3d(0, 60vh, 0);
+  }
+}
+@keyframes fryer {
+  0%, 20%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  25%, 90% {
+    transform: translate3d(0, 60vh, 0);
+  }
+}
+@-webkit-keyframes bubble {
+  0%, 10.1%, 100%, 20% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  5% {
+    transform: translate3d(10px, -40px, 0);
+    opacity: 1;
+  }
+  10% {
+    transform: translateY(-80px);
+    opacity: 0;
+  }
+}
+@keyframes bubble {
+  0%, 10.1%, 100%, 20% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  5% {
+    transform: translate3d(10px, -40px, 0);
+    opacity: 1;
+  }
+  10% {
+    transform: translateY(-80px);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes all-fries {
+  0%, 15%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  20% {
+    transform: translate3d(0, -60px, 0) rotate(180deg);
+  }
+  25%, 90% {
+    transform: translate3d(0, 0, 0) rotate(90deg);
+  }
+}
+@keyframes all-fries {
+  0%, 15%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  20% {
+    transform: translate3d(0, -60px, 0) rotate(180deg);
+  }
+  25%, 90% {
+    transform: translate3d(0, 0, 0) rotate(90deg);
+  }
+}
+@-webkit-keyframes fry-1 {
+  0%, 15%, 100% {
+    transform: translate3d(-28px, 13px, 0);
+  }
+  20% {
+    transform: translate3d(0, 0, 0) rotate(180deg);
+  }
+  25%, 90% {
+    transform: translate3d(15px, 35px, 0) rotate(-200deg);
+  }
+}
+@keyframes fry-1 {
+  0%, 15%, 100% {
+    transform: translate3d(-28px, 13px, 0);
+  }
+  20% {
+    transform: translate3d(0, 0, 0) rotate(180deg);
+  }
+  25%, 90% {
+    transform: translate3d(15px, 35px, 0) rotate(-200deg);
+  }
+}
+@-webkit-keyframes fry-2 {
+  0%, 15%, 100% {
+    transform: translate3d(25px, -15px, 0);
+  }
+  20% {
+    transform: translate3d(0, 0, 0) rotate(180deg);
+  }
+  25%, 90% {
+    transform: translate3d(15px, -25px, 0) rotate(-160deg);
+  }
+}
+@keyframes fry-2 {
+  0%, 15%, 100% {
+    transform: translate3d(25px, -15px, 0);
+  }
+  20% {
+    transform: translate3d(0, 0, 0) rotate(180deg);
+  }
+  25%, 90% {
+    transform: translate3d(15px, -25px, 0) rotate(-160deg);
+  }
+}
+@-webkit-keyframes float-before {
+  0%, 20%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  5%, 15% {
+    transform: translate3d(-2px, 1px, 0);
+  }
+  10% {
+    transform: translate3d(2px, -1px, 0);
+  }
+  20%, 90% {
+    transform: rotate(180deg);
+  }
+}
+@keyframes float-before {
+  0%, 20%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  5%, 15% {
+    transform: translate3d(-2px, 1px, 0);
+  }
+  10% {
+    transform: translate3d(2px, -1px, 0);
+  }
+  20%, 90% {
+    transform: rotate(180deg);
+  }
+}
+@-webkit-keyframes float-after {
+  0%, 20%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  5%, 15% {
+    transform: translate3d(2px, -1px, 0);
+  }
+  10% {
+    transform: translate3d(-2px, 1px, 0);
+  }
+  20%, 90% {
+    transform: rotate(180deg);
+  }
+}
+@keyframes float-after {
+  0%, 20%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  5%, 15% {
+    transform: translate3d(2px, -1px, 0);
+  }
+  10% {
+    transform: translate3d(-2px, 1px, 0);
+  }
+  20%, 90% {
+    transform: rotate(180deg);
+  }
+}
